@@ -5,7 +5,6 @@ export default function Document() {
         <Html>
             <Head>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto"></link>
-                <script src='https://kit.fontawesome.com/a076d05399.js' crossOrigin='anonymous'></script>
             </Head>
             <body>
                 <Main />
