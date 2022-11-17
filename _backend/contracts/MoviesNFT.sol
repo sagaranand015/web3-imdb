@@ -24,9 +24,11 @@ contract MoviesNFT is ERC721URIStorage {
     }
 
     movieData[] movies;
+    rating[] ratings;
     mapping(address => rating) userRating;
-    mapping(uint256 => rating[]) movieRating;
-    mapping(uint256 => uint8) movieRatingAverage;
+
+    // mapping(uint256 => rating[]) movieRating;
+    // mapping(uint256 => uint8) movieRatingAverage;
 
     constructor(address owner) ERC721("MovieNFT", "MNFT") {
         _owner = owner;
@@ -77,5 +79,64 @@ contract MoviesNFT is ERC721URIStorage {
             }
         }
         return (0, "", "", "");
+    }
+
+    function castMovieRating(uint256 _movieNum, uint8 ratingVal) public {
+        rating memory prevRating = userRating[msg.sender];
+        require(prevRating.ratingVal <= 0);
+
+        rating memory r = rating(
+            msg.sender,
+            _movieNum,
+            ratingVal,
+            block.timestamp
+        );
+
+        userRating[msg.sender] = r;
+        // rating[] storage prevMovieR = movieRating[movieNum];
+        // prevMovieR.push(r);
+        // movieRating[movieNum] = prevMovieR;
+        ratings.push(r);
+    }
+
+    function getAvgMovieRating(uint256 _movieNum) public view returns (uint8) {
+        uint256 s = 0;
+        uint256 n = 0;
+        for (uint256 i = 0; i < ratings.length; i++) {
+            if (ratings[i].movieNumber == _movieNum) {
+                s = s + ratings[i].ratingVal;
+                n++;
+            }
+        }
+        uint8 avg = uint8(s / n);
+        return avg;
+    }
+
+    // function getMovieRatings(uint256 _movieNum)
+    //     public
+    //     view
+    //     returns (rating[] memory)
+    // {
+    //     // rating[] memory rs = movieRating[movieNum];
+    //     // return rs;
+    //     rating[] memory allRs = new rating[](10000000);
+    //     for (uint256 i = 0; i < movieNumber; i++) {
+    //         if (ratings[i].movieNumber == _movieNum) {
+    //             allRs.push(ratings[i]);
+    //         }
+    //     }
+    //     return allRs;
+    // }
+
+    function getUserRating(address userAdd)
+        public
+        view
+        returns (bool, rating memory)
+    {
+        rating memory rs = userRating[userAdd];
+        if (rs.ratingVal > 0) {
+            return (true, rs);
+        }
+        return (false, rs);
     }
 }
