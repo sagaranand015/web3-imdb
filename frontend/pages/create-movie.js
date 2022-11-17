@@ -25,7 +25,7 @@ const CreateMovie = () => {
     const handleCreateMovieNFT = async () => {
         if (name && releaseYear && director && imageURL) {
             console.log(name+" "+releaseYear+" "+director+" "+imageURL)
-            await UploadNftJson("inception", "", imageURL, {
+            await UploadNftJson(String(name), "", imageURL, {
                 "director": String(director),
                 "release": String(releaseYear),
                 "cast": ""
