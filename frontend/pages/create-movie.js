@@ -25,17 +25,22 @@ const CreateMovie = () => {
     const handleCreateMovieNFT = async () => {
         if (name && releaseYear && director && imageURL) {
             console.log(name + " " + releaseYear + " " + director + " " + imageURL)
-            await UploadNftJson(name, "", imageURL, {
+            await UploadNftJson(name, "", releaseYear, director, imageURL, {
+                "name": name,
+                "description": "",
                 "director": director,
                 "release": releaseYear,
-                "cast": ""
+                "imageURL": imageURL
             }).then(function (resp) {
                 console.log("======== response of nft.storage is: ", resp);
                 const ipfsUrl = `ipfs://${resp}`
                 console.log("======== final ipfs url: ", ipfsUrl);
 
-                moviesContract.createMovieNft(String(name),
+                moviesContract.createMovieNft(name,
                     "",
+                    releaseYear,
+                    director,
+                    imageURL,
                     ipfsUrl, {
                     gasLimit: '3000000'
                 }).then(function (resp) {
