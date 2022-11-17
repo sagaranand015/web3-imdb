@@ -26,8 +26,9 @@ contract MoviesNFT is ERC721URIStorage {
     movieData[] movies;
     rating[] ratings;
     mapping(address => rating) userRating;
+
     // mapping(uint256 => rating[]) movieRating;
-    mapping(uint256 => uint8) movieRatingAverage;
+    // mapping(uint256 => uint8) movieRatingAverage;
 
     constructor(address owner) ERC721("MovieNFT", "MNFT") {
         _owner = owner;
@@ -80,10 +81,10 @@ contract MoviesNFT is ERC721URIStorage {
         return (0, "", "", "");
     }
 
-    function castMovieRating(uint256 _movieNum, uint8 ratingVal)
-        public
-        returns (uint8, uint8)
-    {
+    function castMovieRating(uint256 _movieNum, uint8 ratingVal) public {
+        rating memory prevRating = userRating[msg.sender];
+        require(prevRating.ratingVal <= 0);
+
         rating memory r = rating(
             msg.sender,
             _movieNum,
@@ -96,19 +97,6 @@ contract MoviesNFT is ERC721URIStorage {
         // prevMovieR.push(r);
         // movieRating[movieNum] = prevMovieR;
         ratings.push(r);
-
-        // TODO: Calculate average and store in storage
-        uint256 s = 0;
-        uint256 n = 0;
-        for (uint256 i = 0; i < ratings.length; i++) {
-            if (ratings[i].movieNumber == _movieNum) {
-                s = s + ratings[i].ratingVal;
-                n++;
-            }
-        }
-        uint8 avg = uint8(s / n);
-
-        return (ratingVal, avg);
     }
 
     function getAvgMovieRating(uint256 _movieNum) public view returns (uint8) {
@@ -143,9 +131,12 @@ contract MoviesNFT is ERC721URIStorage {
     function getUserRating(address userAdd)
         public
         view
-        returns (rating memory)
+        returns (bool, rating memory)
     {
         rating memory rs = userRating[userAdd];
-        return rs;
+        if (rs.ratingVal > 0) {
+            return (true, rs);
+        }
+        return (false, rs);
     }
 }

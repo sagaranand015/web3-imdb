@@ -446,18 +446,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "name": "castMovieRating",
-        "outputs": [
-            {
-                "internalType": "uint8",
-                "name": "",
-                "type": "uint8"
-            },
-            {
-                "internalType": "uint8",
-                "name": "",
-                "type": "uint8"
-            }
-        ],
+        "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -490,6 +479,11 @@ export const MOVIES_CONTRACT_ABI = [
         ],
         "name": "getUserRating",
         "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            },
             {
                 "components": [
                     {
