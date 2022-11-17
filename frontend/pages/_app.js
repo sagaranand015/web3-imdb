@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>WMDB</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <link rel="icon" href="/wmdb-icon.png" />
       </Head>
 
       <Component {...pageProps} />

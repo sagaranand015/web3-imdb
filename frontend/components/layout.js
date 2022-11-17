@@ -11,11 +11,12 @@ export default function Layout({ children }) {
     const { currentAccount, setCurrentAccount } = useAuth()
 
     return (
-        <div className="h-screen p-6">
+        <div className="h-screen p-8">
             <div>
                 <header className="flex justify-between mb-6">
                     <div className="flex items-center">
-                        <h3 className="text-2xl font-extrabold"><Link href="/">WMDB</Link></h3>
+                        {/* <h3 className="text-2xl font-extrabold"><Link href="/">WMDB</Link></h3> */}
+                        <Link href="/"><img src="/wmdb-logo.png" alt="" className='inline-block w-20 rounded-lg'/></Link>
                         {currentAccount && (
                             <div className="flex">
                                 <p className="ml-8 text-gray-600"><Link href="/dashboard">Dashboard</Link></p>
@@ -32,7 +33,7 @@ export default function Layout({ children }) {
                         <button className="px-4 py-2 border-2 border-black hover:border-gray-400 rounded" onClick={setCurrentAccount}>Connect Wallet</button>
                     )}
                 </header>
-                <main>
+                <main className='px-8 py-6'>
                     {children}
                 </main>
             </div>
