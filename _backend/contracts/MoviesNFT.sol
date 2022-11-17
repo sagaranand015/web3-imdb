@@ -13,6 +13,9 @@ contract MoviesNFT is ERC721URIStorage {
         uint256 movieNumber;
         string movieName;
         string movieDescription;
+        string release;
+        string director;
+        string imageURL;
         string ipfsHash;
     }
 
@@ -37,6 +40,9 @@ contract MoviesNFT is ERC721URIStorage {
     function createMovieNft(
         string memory name,
         string memory description,
+        string memory release,
+        string memory director,
+        string memory imageURL,
         string memory ipfsHash
     ) public {
         require(msg.sender == _owner);
@@ -45,6 +51,9 @@ contract MoviesNFT is ERC721URIStorage {
             movieNumber,
             name,
             description,
+            release,
+            director,
+            imageURL,
             ipfsHash
         );
 
@@ -65,6 +74,9 @@ contract MoviesNFT is ERC721URIStorage {
             uint256,
             string memory,
             string memory,
+            string memory,
+            string memory,
+            string memory,
             string memory
         )
     {
@@ -74,11 +86,14 @@ contract MoviesNFT is ERC721URIStorage {
                     movies[i].movieNumber,
                     movies[i].movieName,
                     movies[i].movieDescription,
+                    movies[i].release,
+                    movies[i].director,
+                    movies[i].imageURL,
                     movies[i].ipfsHash
                 );
             }
         }
-        return (0, "", "", "");
+        return (0, "", "", "", "", "", "");
     }
 
     function castMovieRating(uint256 _movieNum, uint8 ratingVal) public {

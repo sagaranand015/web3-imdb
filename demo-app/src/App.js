@@ -57,10 +57,12 @@ function App() {
   async function createMovieNft() {
     // 1. Create the IPFS link of the JSON file
     // 2. Call the smart contract method and get the tokenId
-    await UploadNftJson("movie02", "description for movie02", DEMO_MOVIE_IMAGE, {
-      "director": "Abc",
-      "release": "2022",
-      "cast": "A1, A2 and so on.."
+    await UploadNftJson("movie02", "description for movie02", "2010", "Mr. Director", DEMO_MOVIE_IMAGE, {
+      "name": "movie02",
+      "description": "description for movie02",
+      "director": "Mr. Director",
+      "release": "2010",
+      "imageURL": DEMO_MOVIE_IMAGE,
     }).then(function (resp) {
       console.log("======== response of nft.storage is: ", resp);
       const ipfsUrl = `ipfs://${resp}`
@@ -68,6 +70,9 @@ function App() {
 
       moviesContract.createMovieNft("movie02",
         "description for movie02",
+        "2010",
+        "Mr. Director",
+        DEMO_MOVIE_IMAGE,
         ipfsUrl, {
         gasLimit: '3000000'
       }).then(function (resp) {

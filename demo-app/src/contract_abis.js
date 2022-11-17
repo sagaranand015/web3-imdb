@@ -120,7 +120,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -139,7 +140,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -163,7 +165,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [],
@@ -176,7 +179,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -195,7 +199,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -283,7 +288,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [],
@@ -296,7 +302,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -315,7 +322,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -354,6 +362,21 @@ export const MOVIES_CONTRACT_ABI = [
             },
             {
                 "internalType": "string",
+                "name": "release",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "director",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "imageURL",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
                 "name": "ipfsHash",
                 "type": "string"
             }
@@ -386,6 +409,21 @@ export const MOVIES_CONTRACT_ABI = [
                     },
                     {
                         "internalType": "string",
+                        "name": "release",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "director",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "imageURL",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
                         "name": "ipfsHash",
                         "type": "string"
                     }
@@ -396,7 +434,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -427,10 +466,26 @@ export const MOVIES_CONTRACT_ABI = [
                 "internalType": "string",
                 "name": "",
                 "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -467,7 +522,8 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     },
     {
         "inputs": [
@@ -513,6 +569,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "constant": true
     }
 ];
