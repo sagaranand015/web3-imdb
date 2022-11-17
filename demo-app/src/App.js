@@ -95,6 +95,40 @@ function App() {
     });
   }
 
+  async function getMovieRatingsByNumber(movieNum) {
+    moviesContract.getMovieRatings(movieNum, {
+      gasLimit: '3000000'
+    }).then(function (resp) {
+      // console.log(`Movie Ratings:. Address: ${resp[0]}, MovieNum: ${resp[1]}, ratingVal: ${resp[2]}, createdAt: ${resp[3]}`);
+      console.log("Movie Ratings: ", resp);
+    });
+  }
+
+  async function castMovieRating(movieNum, ratingVal) {
+    moviesContract.castMovieRating(movieNum, ratingVal, {
+      gasLimit: '3000000'
+    }).then(function (resp) {
+      console.log("Cast Rating: ", resp);
+      console.log(`Cast Ratings Response:. Address: ${resp[0]}, MovieNum: ${resp[1]}, ratingVal: ${resp[2]}, createdAt: ${resp[3]}`);
+    });
+  }
+
+  async function getUserRatings() {
+    moviesContract.getUserRating(currentAccount, {
+      gasLimit: '3000000'
+    }).then(function (resp) {
+      console.log("User Ratings Response:", resp);
+    });
+  }
+
+  async function getAvgForMovie(movieNum) {
+    moviesContract.getAvgMovieRating(movieNum, {
+      gasLimit: '3000000'
+    }).then(function (resp) {
+      console.log("Average Rating Response:", resp);
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -103,6 +137,10 @@ function App() {
         <button onClick={getAllMovies}>Get all movies</button>
         <button onClick={() => getMovieByNumber(1)}>Get Movie with TokenId: 1</button>
         <button onClick={() => getMovieByNumber(2)}>Get Movie with TokenId: 2</button>
+        <button onClick={() => castMovieRating(1, 9)}>Cast rating: 9 to movie: 1</button>
+        <button onClick={() => getMovieRatingsByNumber(2)}>Get Movie Ratings with TokenId: 1</button>
+        <button onClick={() => getUserRatings()}>Get Current User Ratings</button>
+        <button onClick={() => getAvgForMovie(1)}>Get Average Rating of Movie: 1</button>
       </header>
     </div >
   );
