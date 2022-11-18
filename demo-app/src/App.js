@@ -96,10 +96,6 @@ function App() {
       console.log("======== final ipfs url: ", ipfsUrl);
 
       moviesContract.createMovieNft("movie02",
-        "description for movie02",
-        "2010",
-        "Mr. Director",
-        DEMO_MOVIE_IMAGE,
         ipfsUrl, {
         gasLimit: '3000000'
       }).then(function (resp) {
@@ -121,8 +117,8 @@ function App() {
     moviesContract.getMovieByNumber(movieNum, {
       gasLimit: '3000000'
     }).then(function (resp) {
-      console.log(`Movie Data from Blockchain & IPFS. TokenId: ${resp[0]}, Name: ${resp[1]}, Desc: ${resp[2]}, Metadata: ${resp[3]}`);
-      const ipfsMetadata = resp[3];
+      console.log(`Movie Data from Blockchain & IPFS. TokenId: ${resp[0]}, Name: ${resp[1]}, Ipfs: ${resp[2]}`);
+      const ipfsMetadata = resp[2];
       FetchDataFromIpfsLink(ipfsMetadata.split("\/")[2]);
     });
   }
@@ -141,7 +137,6 @@ function App() {
       gasLimit: '3000000'
     }).then(function (resp) {
       console.log("Cast Rating: ", resp);
-      console.log(`Cast Ratings Response:. Address: ${resp[0]}, MovieNum: ${resp[1]}, ratingVal: ${resp[2]}, createdAt: ${resp[3]}`);
     });
   }
 

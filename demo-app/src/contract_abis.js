@@ -349,26 +349,6 @@ export const MOVIES_CONTRACT_ABI = [
             },
             {
                 "internalType": "string",
-                "name": "description",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "release",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "director",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "imageURL",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
                 "name": "ipfsHash",
                 "type": "string"
             }
@@ -392,26 +372,6 @@ export const MOVIES_CONTRACT_ABI = [
                     {
                         "internalType": "string",
                         "name": "movieName",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "movieDescription",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "release",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "director",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "imageURL",
                         "type": "string"
                     },
                     {
@@ -442,26 +402,6 @@ export const MOVIES_CONTRACT_ABI = [
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
             },
             {
                 "internalType": "string",
