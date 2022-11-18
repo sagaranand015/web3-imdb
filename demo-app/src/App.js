@@ -185,8 +185,12 @@ function App() {
     });
   }
 
-  async function showVerificationQRCode() {
-
+  async function getAllRatings() {
+    moviesContract.getAllRatings({
+      gasLimit: '3000000'
+    }).then(function (resp) {
+      console.log("All Ratings Response:", resp);
+    });
   }
 
   return (
@@ -197,12 +201,14 @@ function App() {
         <button onClick={getAllMovies}>Get all movies</button>
         <button onClick={() => getMovieByNumber(1)}>Get Movie with TokenId: 1</button>
         <button onClick={() => getMovieByNumber(2)}>Get Movie with TokenId: 2</button>
-        <button onClick={() => castMovieRating(1, 9)}>Cast rating: 9 to movie: 1</button>
+        <button onClick={() => castMovieRating(1, 10)}>Cast rating: 10 to movie: 1</button>
+        <button onClick={() => castMovieRating(2, 8)}>Cast rating: 8 to movie: 2</button>
         {/* <button onClick={() => getMovieRatingsByNumber(2)}>Get Movie Ratings with TokenId: 1</button> */}
         <button onClick={() => getUserRatings()}>Get Current User Ratings</button>
         <button onClick={() => getAvgForMovie(1)}>Get Average Rating of Movie: 1</button>
+        <button onClick={() => getAllRatings()}>Get All Ratings</button>
         <button onClick={() => setRequestForVerification()}>Set Request for User Verification</button>
-        <button onClick={() => showVerificationQRCode()}>Show Verification QR Code</button>
+        <br />
 
         <QRCodeSVG level="Q"
           size="256"

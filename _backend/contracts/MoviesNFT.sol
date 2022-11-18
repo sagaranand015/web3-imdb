@@ -29,9 +29,7 @@ contract MoviesNFT is ERC721URIStorage {
     movieData[] movies;
     rating[] ratings;
     mapping(address => rating) userRating;
-
-    // mapping(uint256 => rating[]) movieRating;
-    // mapping(uint256 => uint8) movieRatingAverage;
+    mapping(address => uint256[]) userMovieRating;
 
     constructor(address owner) ERC721("MovieNFT", "MNFT") {
         _owner = owner;
@@ -97,8 +95,14 @@ contract MoviesNFT is ERC721URIStorage {
     }
 
     function castMovieRating(uint256 _movieNum, uint8 ratingVal) public {
-        rating memory prevRating = userRating[msg.sender];
-        require(prevRating.ratingVal <= 0);
+        for (uint256 i = 0; i < ratings.length; i++) {
+            if (
+                ratings[i].ratingOwner == msg.sender &&
+                ratings[i].movieNumber == _movieNum
+            ) {
+                require(1 == 2, "Movie cannot be rated twice");
+            }
+        }
 
         rating memory r = rating(
             msg.sender,
@@ -108,9 +112,6 @@ contract MoviesNFT is ERC721URIStorage {
         );
 
         userRating[msg.sender] = r;
-        // rating[] storage prevMovieR = movieRating[movieNum];
-        // prevMovieR.push(r);
-        // movieRating[movieNum] = prevMovieR;
         ratings.push(r);
     }
 
@@ -137,5 +138,9 @@ contract MoviesNFT is ERC721URIStorage {
             return (true, rs);
         }
         return (false, rs);
+    }
+
+    function getAllRatings() public view returns (rating[] memory) {
+        return ratings;
     }
 }
