@@ -1,42 +1,47 @@
 export const moviesData = [
     {
-        name: "inception",
+        name: "Inception",
         release: "2010",
-        director: "christopher nolan"
+        director: "Christopher Nolan"
     },
     {
-        name: "12 angry men",
+        name: "12 Angry Men",
         release: "1957",
-        director: "sidney lumet"
+        director: "Sidney Lumet"
     },
     {
-        name: "the dark knight",
+        name: "The Dark Knight",
         release: "2008",
-        director: "christopher nolan"
+        director: "Christopher Nolan"
     },
     {
-        name: "the shawshank redemption",
+        name: "The Shawshank Redemption",
         release: "1994",
-        director: "frank darabont"
+        director: "Frank Farabont"
     },
     {
-        name: "forrest gump",
+        name: "Forrest Gump",
         release: "1994",
-        director: "robert zemeckis"   
+        director: "Robert Zemeckis"   
     },
     {
-        name: "life is beautiful",
+        name: "life Is Beautiful",
         release: "1997",
-        director: "robert benigni"
+        director: "Robert Benigni"
     },
     {
-        name: "inglorious basterds",
+        name: "Inglourious Basterds",
         release: "2009",
-        director: "quentin tarantino"
+        director: "Quentin Tarantino"
     },
     {
-        name: "se7en",
+        name: "Se7en",
         release: "1995",
         director: "David Fincher"
+    },
+    {
+        name: "Psycho",
+        release: "1960",
+        director: "Alfred Hitchcock"
     }
 ]
