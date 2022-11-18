@@ -16,10 +16,10 @@ export default function Layout({ children }) {
                 <header className="flex justify-between mb-6">
                     <div className="flex items-center">
                         {/* <h3 className="text-2xl font-extrabold"><Link href="/">WMDB</Link></h3> */}
-                        <Link href="/"><img src="/wmdb-logo.png" alt="" className='inline-block w-20 rounded-lg'/></Link>
+                        <Link href="/"><img src="/wmdb-logo.png" alt="" className='inline-block w-20 rounded-lg' /></Link>
                         {currentAccount && (
                             <div className="flex">
-                                <p className="ml-8 text-gray-600"><Link href="/dashboard">Dashboard</Link></p>
+                                <p className="ml-8 text-gray-600"><Link href="/my-ratings">My Ratings</Link></p>
                                 <p className="ml-8 text-gray-600"><Link href="/create-movie">Add Movie</Link></p>
                             </div>
                         )
@@ -28,7 +28,11 @@ export default function Layout({ children }) {
 
                     </div>
                     {currentAccount ? (
-                        <h4>{shortenAddress(currentAccount)}</h4>
+                        <div className="flex">
+                            <p className="ml-8 text-gray-600"><Link href="/verify">Verify</Link></p>
+                            <p className="ml-8 text-gray-600">{shortenAddress(currentAccount)}</p>
+                        </div>
+
                     ) : (
                         <button className="px-4 py-2 border-2 border-black hover:border-gray-400 rounded" onClick={setCurrentAccount}>Connect Wallet</button>
                     )}

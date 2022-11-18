@@ -5,9 +5,17 @@ import { useState } from "react"
 export default function Movie({ movieData }) {
 
     const [rated, setRated] = useState(false)
+    const [beingRated, setBeingRated] = useState(false)
+    const [rating, setRating] = useState(null)
 
     const handleRateMovie = () => {
-
+        if(rating>0 && rating <=10) {
+            // setBeingRated(false)
+            console.log("Movie Rating function")
+        }
+        else {
+            alert("Please enter valid value")
+        }
     }
 
     return (
@@ -32,12 +40,24 @@ export default function Movie({ movieData }) {
                                 <i className="mt-3 fas fa-star text-pink-400 text-xl"></i><span className="ml-2"><span className="text-2xl font-semibold">8.5</span>/10</span>
                             </div>
                         ) : (
-                            <button className="hover:bg-pink-200 p-3" onClick={handleRateMovie}>
+                            <button className="hover:bg-pink-200 p-3" onClick={() => setBeingRated(true)}>
                                 <i className="far fa-star text-blue-400 text-xl"></i><span className="ml-2 text-blue-400 text-xl">Rate</span>
                             </button>
                         )}
-
                     </div>
+                    {beingRated && (
+                        <dialog open className="w-96 bg-gray-600">
+                            <i className="float-right text-white fa fa-close text-xl cursor-pointer" onClick={() => setBeingRated(false)}></i>
+                            <div className="mt-6 text-center">
+                                <p className="text-yellow-400 text-sm">Rate This</p>
+                                <p className="mt-2 text-white text-2xl">{movieData.name}</p>
+                                <input className="block text-center mx-auto mt-2 bg-gray-100 px-4 py-2 w-20" type="number" name="Movie Rating" placeholder="" value={rating} onChange={(e) => { setRating(e.target.value) }} />
+                                <button className="mt-4 mb-6 px-20 py-2 text-gray-100 bg-gray-500 hover:text-gray-300" onClick={handleRateMovie}>Rate</button>
+                            </div>
+                            
+                        </dialog>
+                    )}
+                    
 
                 </div>
             </div>
