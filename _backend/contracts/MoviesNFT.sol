@@ -127,22 +127,6 @@ contract MoviesNFT is ERC721URIStorage {
         return avg;
     }
 
-    // function getMovieRatings(uint256 _movieNum)
-    //     public
-    //     view
-    //     returns (rating[] memory)
-    // {
-    //     // rating[] memory rs = movieRating[movieNum];
-    //     // return rs;
-    //     rating[] memory allRs = new rating[](10000000);
-    //     for (uint256 i = 0; i < movieNumber; i++) {
-    //         if (ratings[i].movieNumber == _movieNum) {
-    //             allRs.push(ratings[i]);
-    //         }
-    //     }
-    //     return allRs;
-    // }
-
     function getUserRating(address userAdd)
         public
         view
