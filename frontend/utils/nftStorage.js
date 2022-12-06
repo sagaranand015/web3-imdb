@@ -38,12 +38,14 @@ export async function FetchDataFromIpfsLink(cid) {
     console.log("======= check this link", url);
 }
 
-export async function UploadNftJson(name, description, image, metadata) {
+export async function UploadNftJson(name, description, release, director, image, metadata) {
     const client = GetStorageClient();
     const data = {
         "name": name,
         "description": description,
         "image": image,
+        "release": release,
+        "director": director,
         "metadata": metadata,
     }
     const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });

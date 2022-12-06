@@ -37,10 +37,6 @@ const CreateMovie = () => {
                 console.log("======== final ipfs url: ", ipfsUrl);
 
                 moviesContract.createMovieNft(name,
-                    "",
-                    releaseYear,
-                    director,
-                    imageURL,
                     ipfsUrl, {
                     gasLimit: '3000000'
                 }).then(function (resp) {

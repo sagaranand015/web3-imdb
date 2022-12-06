@@ -120,8 +120,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -140,8 +139,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -165,8 +163,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -179,8 +176,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -199,8 +195,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -288,8 +283,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -302,8 +296,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -322,8 +315,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -357,26 +349,6 @@ export const MOVIES_CONTRACT_ABI = [
             },
             {
                 "internalType": "string",
-                "name": "description",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "release",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "director",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "imageURL",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
                 "name": "ipfsHash",
                 "type": "string"
             }
@@ -404,26 +376,6 @@ export const MOVIES_CONTRACT_ABI = [
                     },
                     {
                         "internalType": "string",
-                        "name": "movieDescription",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "release",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "director",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
-                        "name": "imageURL",
-                        "type": "string"
-                    },
-                    {
-                        "internalType": "string",
                         "name": "ipfsHash",
                         "type": "string"
                     }
@@ -434,8 +386,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -461,31 +412,10 @@ export const MOVIES_CONTRACT_ABI = [
                 "internalType": "string",
                 "name": "",
                 "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "",
-                "type": "string"
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -522,8 +452,7 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -569,7 +498,418 @@ export const MOVIES_CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getAllRatings",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "ratingOwner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "movieNumber",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "ratingVal",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "createdAt",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct MoviesNFT.rating[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+];
+
+export const RATERVERIFIER_CONTRACT_ABI = [
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "moviesNftContract",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "TRANSFER_REQUEST_ID",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function",
         "constant": true
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "addressToId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [],
+        "name": "getSupportedRequests",
+        "outputs": [
+            {
+                "internalType": "uint64[]",
+                "name": "arr",
+                "type": "uint64[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint64",
+                "name": "requestId",
+                "type": "uint64"
+            }
+        ],
+        "name": "getZKPRequest",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "schema",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "slotIndex",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "operator",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "value",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "circuitId",
+                        "type": "string"
+                    }
+                ],
+                "internalType": "struct ICircuitValidator.CircuitQuery",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "idToAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "name": "proofs",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "name": "requestQueries",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "schema",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "slotIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "operator",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "circuitId",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "name": "requestValidators",
+        "outputs": [
+            {
+                "internalType": "contract ICircuitValidator",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint64",
+                "name": "requestId",
+                "type": "uint64"
+            },
+            {
+                "internalType": "contract ICircuitValidator",
+                "name": "validator",
+                "type": "address"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "schema",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "slotIndex",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "operator",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "value",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "circuitId",
+                        "type": "string"
+                    }
+                ],
+                "internalType": "struct ICircuitValidator.CircuitQuery",
+                "name": "query",
+                "type": "tuple"
+            }
+        ],
+        "name": "setZKPRequest",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint64",
+                "name": "requestId",
+                "type": "uint64"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "inputs",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[2]",
+                "name": "a",
+                "type": "uint256[2]"
+            },
+            {
+                "internalType": "uint256[2][2]",
+                "name": "b",
+                "type": "uint256[2][2]"
+            },
+            {
+                "internalType": "uint256[2]",
+                "name": "c",
+                "type": "uint256[2]"
+            }
+        ],
+        "name": "submitZKPResponse",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "supportedRequests",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     }
 ];
